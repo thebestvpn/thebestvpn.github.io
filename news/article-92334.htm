@@ -105,6 +105,7 @@
                   				  				  				<div id="content_views" class="htmledit_views"> <h2>新建一个 testform1.gtpl 文件，内容如下：</h2> <pre class="has"><code class="language-Go">&lt;!doctype html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;meta name="viewport"           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"&gt;     &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;     &lt;title&gt;登录&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;form action="/login" method="post"&gt;     用户名：&lt;input type="text" name="username"&gt;     密码：&lt;input type="password" name="password"&gt;     &lt;input type="submit" value="登录"&gt; &lt;/form&gt; &lt;/body&gt; &lt;/html&gt;</code></pre> <h2>新建一个 testform1.go 文件，内容如下：</h2> <pre class="has"><code class="language-Go">package main  import ( 	"fmt" 	"html/template" 	"log" 	"net/http" 	"net/url" 	"strings" )  func sayhelloName(w http.ResponseWriter,r *http.Request)  { 	r.ParseForm() //解析url传递的参数，对于post则解析响应包的主体(request body) 	//注意：如果没有调用 ParseForm方法，下面无法获取表单的数据  	//下面这些信息是输出到服务器端的打印信息 	fmt.Println(r.Form) 	fmt.Println("path",r.URL.Path) 	fmt.Println("scheme",r.URL.Scheme) 	fmt.Println(r.Form["url_long"]) 	for k,v := range r.Form{ 		fmt.Println("key：",k) 		fmt.Println("val：",strings.Join(v,"")) 	}  	//下面这个写入到w 的是输出到客户端的 	fmt.Fprintf(w,"hello testform1.go") }  func login(w http.ResponseWriter,r *http.Request)  { 	fmt.Println("method：",r.Method) //获取请求的方法 	if r.Method == "GET"{ 		t,_ := template.ParseFiles("testform1.gtpl") 		log.Println(t.Execute(w,nil)) 	}else{ 		r.ParseForm()       //解析url传递的参数，对于POST则解析响应包的主体（request body） 		//请求的是登录数据，name执行登录的逻辑判断 		fmt.Println("username：",r.Form["username"]) 		fmt.Println("password：",r.Form["password"])  		//Request本身也提供了FormValue()函数来获取用户提交的参数。 		// 如r.Form["username"]也可写成r.FormValue("username")。 		// 调用r.FormValue时会自动调用r.ParseForm，所以不必提前调用。 		// r.FormValue只会返回同名参数中的第一个，若参数不存在则返回空字符串。 		fmt.Println() 		fmt.Println("FormValue") 		fmt.Println("username：",r.FormValue("username")) 		fmt.Println("password：",r.FormValue("password")) 		fmt.Println("verify_code：",r.FormValue("verify_code"))  		//request.Form是一个url.Values类型，里面存储的是对应的类似key=value的信息，下面展示了可以对form数据进行的一些操作: 		fmt.Println() 		fmt.Println("url.Values") 		v := url.Values{} 		v.Set("name", "Ava") 		v.Add("friend", "Jess") 		v.Add("friend", "Sarah") 		v.Add("friend", "Zoe") 		// v.Encode() == "name=Ava&amp;friend=Jess&amp;friend=Sarah&amp;friend=Zoe" 		fmt.Println(v.Get("name")) 		fmt.Println(v.Get("friend")) 		fmt.Println(v["friend"]) 	}  }  func main() { 	http.HandleFunc("/",sayhelloName) //设置路由 	http.HandleFunc("/login",login) //设置路由 	err := http.ListenAndServe(":6665",nil) //设置监听的端口 	if err != nil{ 		log.Fatal("ListenAndServe：",err) 	} }</code></pre> <h2>运行 testform1.go ，启动服务器&nbsp;：</h2> <pre class="has"><code class="language-Go">[root@izj6c4jirdug8kh3uo6rdez goweb]# go run testform1.go</code></pre> <h2>浏览器运行<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://daily886.com:6665/login"  rel="nofollow">http://域名:6665/login</a>&nbsp; ，输入数据后登录</h2> <h2>服务器端即可看到表单参数：</h2> <pre class="has"><code class="language-Go">method： POST username： [123] password： [4444]  FormValue username： 123 password： 4444 verify_code：   url.Values Ava Jess [Jess Sarah Zoe]</code></pre> <p>参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.golang123.com/book/9?chapterID=157"  rel="nofollow">https://www.golang123.com/book/9?chapterID=157</a></p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-92332.htm">Android开发基础——Kotlin：标准函数和静态方法</a></p>
+                                        <p>下一个：<a href="/news/article-93060.htm">动物防疫法的方针是什么（动物防疫法实行什么方针）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -114,16 +115,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-4-7-free-high-speed-nodes.htm" title="免费最佳VPN翻墙 | 4月7日20.3M/S|免费Shadowrocket/Clash/V2ray/SSR订阅机场">免费最佳VPN翻墙 | 4月7日20.3M/S|免费Shadowrocket/Clash/V2ray/SSR订阅机场</a></li>
-                        <li class="py-2"><a href="/news/article-91225.htm" title="动物疫苗的储存不合格区什么颜色的线（动物疫苗运输与储存规范）">动物疫苗的储存不合格区什么颜色的线（动物疫苗运输与储存规范）</a></li>
-                        <li class="py-2"><a href="/news/article-92334.htm" title="go实践十九 web开发使用模板获取form参数">go实践十九 web开发使用模板获取form参数</a></li>
+                        <li class="py-2"><a href="/news/article-90103.htm" title="如何用C/C++实现去除字符串头和尾指定的字符">如何用C/C++实现去除字符串头和尾指定的字符</a></li>
                         <li class="py-2"><a href="/news/article-92332.htm" title="Android开发基础——Kotlin：标准函数和静态方法">Android开发基础——Kotlin：标准函数和静态方法</a></li>
+                        <li class="py-2"><a href="/news/article-91225.htm" title="动物疫苗的储存不合格区什么颜色的线（动物疫苗运输与储存规范）">动物疫苗的储存不合格区什么颜色的线（动物疫苗运输与储存规范）</a></li>
+                        <li class="py-2"><a href="/news/article-93063.htm" title="动物疫苗销售需要什么手续和条件呢（卖动物疫苗利润有多高）">动物疫苗销售需要什么手续和条件呢（卖动物疫苗利润有多高）</a></li>
+                        <li class="py-2"><a href="/news/article-94560.htm" title="天津宠物领养平台 ">天津宠物领养平台 </a></li>
+                        <li class="py-2"><a href="/news/article-93816.htm" title="动物疫苗需要冷藏吗多少度以上（动物疫苗在常温下能放多久）">动物疫苗需要冷藏吗多少度以上（动物疫苗在常温下能放多久）</a></li>
+                        <li class="py-2"><a href="/news/article-93815.htm" title="最适合穷人养的狗（最适合穷人养的狗有哪些）">最适合穷人养的狗（最适合穷人养的狗有哪些）</a></li>
                         <li class="py-2"><a href="/news/article-91224.htm" title="哈尔滨王允海宠物医院怎么样呀电话号码（阿城王允海宠物医院）">哈尔滨王允海宠物医院怎么样呀电话号码（阿城王允海宠物医院）</a></li>
-                        <li class="py-2"><a href="/news/article-91572.htm" title="猫三联每一针间隔时间（猫三联每一针间隔时间多久）">猫三联每一针间隔时间（猫三联每一针间隔时间多久）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-4-9-free-node-subscribe.htm" title="免费最佳VPN翻墙 | 4月9日20.8M/S|免费V2ray/SSR/Clash/Shadowrocket订阅机场">免费最佳VPN翻墙 | 4月9日20.8M/S|免费V2ray/SSR/Clash/Shadowrocket订阅机场</a></li>
-                        <li class="py-2"><a href="/news/article-90079.htm" title="济南宠物领养中心电话地址 济南宠物领养中心电话地址查询">济南宠物领养中心电话地址 济南宠物领养中心电话地址查询</a></li>
-                        <li class="py-2"><a href="/news/article-91571.htm" title="妙三多三联是什么（妙三多三联多少钱）">妙三多三联是什么（妙三多三联多少钱）</a></li>
                         <li class="py-2"><a href="/news/article-90104.htm" title="宠物医院寄养协议书范本（宠物医院寄养费多少钱）">宠物医院寄养协议书范本（宠物医院寄养费多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-clash-v2ray-ss-ssr.htm" title="免费最佳VPN翻墙 | 4月13日21.5M/S|免费V2ray/Clash/SSR/Shadowrocket订阅机场">免费最佳VPN翻墙 | 4月13日21.5M/S|免费V2ray/Clash/SSR/Shadowrocket订阅机场</a></li>
                     </ul>
     </div>
 </div>
@@ -135,7 +136,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
             </li>
                     </ul>
     </div>
