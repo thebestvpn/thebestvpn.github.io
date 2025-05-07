@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://thebestvpn.github.io/news/article-111019.htm" />
+    <meta charset="utf-8">
+    <title>在非k8s 环境下 的应用 使用 Dapr Sidekick for .NET</title>
+        <meta name="description" content="在k8s 环境下，通过Operator 可以管理Dapr sidecar， 在虚拟机环境下，我们也是非常需要这样的一个管理组件，类似下图：   在这张图片中，在上图左面，我们看到了“dapr.exe”" />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="免费最佳VPN翻墙 机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://thebestvpn.github.io/news/article-111019.htm" />
+    <meta property="og:site_name" content="免费最佳VPN翻墙 机场订阅官网" />
+    <meta property="og:title" content="在非k8s 环境下 的应用 使用 Dapr Sidekick for .NET" />
+    <meta property="og:image" content="https://thebestvpn.github.io/uploads/20250106/d732e1d0ed485b1f62d7aa9697c75deb.webp" />
+        <meta property="og:release_date" content="2025-05-04T09:26:47" />
+    <meta property="og:updated_time" content="2025-05-04T09:26:47" />
+        <meta property="og:description" content="在k8s 环境下，通过Operator 可以管理Dapr sidecar， 在虚拟机环境下，我们也是非常需要这样的一个管理组件，类似下图：   在这张图片中，在上图左面，我们看到了“dapr.exe”" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="在非k8s 环境下 的应用 使用 Dapr Sidekick for .NET">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XX6ZTTYY8T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XX6ZTTYY8T');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">免费最佳VPN翻墙</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                                <a href="/client.htm" class="nav-item nav-link">客户端</a>
+                                            </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">在非k8s 环境下 的应用 使用 Dapr Sidekick for .NET</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p>在k8s 环境下，通过Operator 可以管理Dapr sidecar， 在虚拟机环境下，我们也是非常需要这样的一个管理组件，类似下图：</p> <p></p> <p><img fetchpriority="high" decoding="async" width="1067" height="292" title="daprmanage" style="display: inline; background-image: none" alt="daprmanage" src="http://img.555519.xyz/uploads3/20220510/c1727044b4ed0b1a0819441064d27113.jpg"></p> <p>在这张图片中，在上图左面，我们看到了“dapr.exe”、我们的应用程序和另一个进程“daprd.exe”之间的通信，该进程实际上是 Sidecar 进程。这是通常的方式（“开箱即用”），例如：</p> <p>dapr run --app-id<strong>backend</strong>--app-port 5001<strong></strong>-- dotnet run --urls=http://localhost:5001/ -p ./WeatherForecastService/WeatherForecastService.csproj</p> <p>dapr run --app-id<strong>proxy</strong>--app-port 6001<strong></strong>-- dotnet run --urls=http://localhost:6001/ -p ./WeatherForecastProxyService/WeatherForecastProxyService.csproj</p> <p>图片右面，使用<strong>Sidekick</strong>简化了此过程/通信，并且我们可以更好地控制以及其他功能。<strong>Dapr Sidekick for .NET</strong> 是一个组件，它允许我们将 Dapr 添加到我们的项目中以避免摩擦。简化 .NET 开发和操作。 当我们的项目部署在虚拟机环境时，推荐使用这个组件。通过Sidekick 我们的应用程序/进程负责启动和运行 Dapr 所需的一切。</p> <p>我的示例代码放在这里：https://github.com/geffzhang/ServiceToService-Sideckick ，通过简单的三步就可以完成这项工作。</p> <p>1、添加Nuget 包<strong>Man.Dapr.Sidekick.AspNetCore ：</strong></p> <pre><p>dotnet add package Man.Dapr.Sidekick.AspNetCore --version 1.2.1</p><p>2、修改类<strong>Startup.cs 的</strong><strong>ConfigureServices</strong> 方法如下：</p></pre> <p><span style="text-transform: none; line-height: normal; text-indent: 0; letter-spacing: normal; word-spacing: 0; float: none; display: inline !important; white-space: pre-wrap; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial"><font style="font-size: 10.8pt">public void ConfigureServices(IServiceCollection services)</font></span><font style="font-size: 10.8pt"><span style="text-transform: none; line-height: normal; text-indent: 0; letter-spacing: normal; word-spacing: 0; float: none; display: inline !important; white-space: pre-wrap; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial"><br /> {</span><span style="text-transform: none; line-height: normal; text-indent: 0; letter-spacing: normal; word-spacing: 0; float: none; display: inline !important; white-space: pre-wrap; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial"><br />     services.AddControllers();</span><span style="text-transform: none; line-height: normal; text-indent: 0; letter-spacing: normal; word-spacing: 0; float: none; display: inline !important; white-space: pre-wrap; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial"><br />     // Add Dapr Sidekick</span><span style="text-transform: none; line-height: normal; text-indent: 0; letter-spacing: normal; word-spacing: 0; float: none; display: inline !important; white-space: pre-wrap; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial"></span><strong style="text-transform: none; line-height: normal; text-indent: 0; letter-spacing: normal; word-spacing: 0; white-space: pre-wrap; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">services.AddDaprSidekick(Configuration);</strong></font><span style="text-transform: none; line-height: normal; text-indent: 0; letter-spacing: normal; word-spacing: 0; float: none; display: inline !important; white-space: pre-wrap; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial"><font style="font-size: 10.8pt"><br /> }</font></span></p> <p><span style="text-transform: none; line-height: normal; text-indent: 0; letter-spacing: normal; word-spacing: 0; float: none; display: inline !important; white-space: pre-wrap; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">3、接下来，当我们的调用（或代理）应用程序调用另一个应用程序时，名称/id 为“<strong>backend</strong> ”，我们需要指定其<strong>AppId</strong>。以同样的方式，由于我们使用“<strong>http</strong>”，我们必须指出"AppSsl": false。所有这些规范都通过“<strong>appsetings.json</strong> ” 文件传递给 Sidekick，如下所示。</span></p> <p>项目backend 的配置：</p> <p>"DaprSidekick": {<br />&nbsp;&nbsp; // Set the runtime location of config/components files to be the "dapr" folder under the deployed application<br />&nbsp;&nbsp; "RuntimeDirectory": "dapr",<br />&nbsp;&nbsp; "Sidecar": {<br />&nbsp;&nbsp;&nbsp;&nbsp; "AppId": "backend",<br />&nbsp;&nbsp;&nbsp;&nbsp; "AppSsl": false,<br />&nbsp;&nbsp;&nbsp;&nbsp; "AppPort": 5001,<br />&nbsp;&nbsp;&nbsp;&nbsp; "DaprHttpPort": 3501,<br />&nbsp;&nbsp;&nbsp;&nbsp; "DaprGrpcPort": 50001<br />&nbsp;&nbsp; },<br />&nbsp;&nbsp; "Placement": {},<br />&nbsp;&nbsp; "Sentry": {}<br /> }</p> <p>项目 proxy的配置</p> <p>"DaprSidekick": {<br />&nbsp;&nbsp; // Set the runtime location of config/components files to be the "dapr" folder under the deployed application<br />&nbsp;&nbsp; "RuntimeDirectory": "dapr",<br />&nbsp;&nbsp; "Sidecar": {<br />&nbsp;&nbsp;&nbsp;&nbsp; "AppId": "proxy",<br />&nbsp;&nbsp;&nbsp;&nbsp; "AppSsl": false,<br />&nbsp;&nbsp;&nbsp;&nbsp; "AppPort": 6001,<br />&nbsp;&nbsp;&nbsp;&nbsp; "DaprHttpPort": 3601,<br />&nbsp;&nbsp;&nbsp;&nbsp; "DaprGrpcPort": 60001<br />&nbsp;&nbsp; },<br />&nbsp;&nbsp; "Placement": {},<br />&nbsp;&nbsp; "Sentry": {}<br /> }</p> <p><strong>注意</strong>：<em>对于上述配置文件，由于我们运行多个项目，我们还必须指定“<strong>AppPort</strong> ”、“<strong>DaprHttpPort</strong> ”和“<strong>DaprGrpcPort</strong> ”属性。其余的“Placement”和“Sentry”部分，以及其他属性，暂时可以忽略</em>。</p> <p>RuntimeDirectory&nbsp; 是Dapr 运行时配置文件位置，我们在示例里测试使用Consul 作为服务注册和服务发现组件。</p> <p>改造后直接运行就可以了，这个特别适合IOT场景下使用Dapr。</p> <p>dotnet WeatherForecastService.dll --urls=http://localhost:5001</p> <p>dotnet WeatherForecastProxyService.dll --urls=http://localhost:6001</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-110177.htm">护士证可以自考吗怎么考（护士证可以自考吗怎么考天津）</a></p>
+                                        <p>下一个：<a href="/news/article-111021.htm">动物疫苗的使用方法有哪些 动物疫苗的使用方法有哪些种类</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-29-free-high-speed-nodes.htm" title="免费最佳VPN翻墙 | 4月29日22.3M/S|免费Clash/Shadowrocket/V2ray/SSR订阅机场">免费最佳VPN翻墙 | 4月29日22.3M/S|免费Clash/Shadowrocket/V2ray/SSR订阅机场</a></li>
+                        <li class="py-2"><a href="/news/article-96089.htm" title="动物疫苗接种禁忌症和注意事项图片视频 动物疫苗接种禁忌症和注意事项图片视频讲解">动物疫苗接种禁忌症和注意事项图片视频 动物疫苗接种禁忌症和注意事项图片视频讲解</a></li>
+                        <li class="py-2"><a href="/news/article-104341.htm" title="动物注射疫苗后过敏反应的处理方法是什么（动物注射疫苗后过敏反应的处理方法是什么意思）">动物注射疫苗后过敏反应的处理方法是什么（动物注射疫苗后过敏反应的处理方法是什么意思）</a></li>
+                        <li class="py-2"><a href="/news/article-98953.htm" title="宠物医院仓鼠服务内容（宠物医院治仓鼠贵不贵）">宠物医院仓鼠服务内容（宠物医院治仓鼠贵不贵）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-14-free-node-subscribe.htm" title="免费最佳VPN翻墙 | 4月14日20.6M/S|免费Clash/V2ray/SSR/Shadowrocket订阅机场">免费最佳VPN翻墙 | 4月14日20.6M/S|免费Clash/V2ray/SSR/Shadowrocket订阅机场</a></li>
+                        <li class="py-2"><a href="/news/article-90079.htm" title="济南宠物领养中心电话地址 济南宠物领养中心电话地址查询">济南宠物领养中心电话地址 济南宠物领养中心电话地址查询</a></li>
+                        <li class="py-2"><a href="/news/article-92332.htm" title="Android开发基础——Kotlin：标准函数和静态方法">Android开发基础——Kotlin：标准函数和静态方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-free-node-subscribe-links.htm" title="免费最佳VPN翻墙 | 4月11日20.4M/S|免费V2ray/Shadowrocket/Clash/SSR订阅机场">免费最佳VPN翻墙 | 4月11日20.4M/S|免费V2ray/Shadowrocket/Clash/SSR订阅机场</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-clash-v2ray-ss-ssr.htm" title="免费最佳VPN翻墙 | 4月13日21.5M/S|免费V2ray/Clash/SSR/Shadowrocket订阅机场">免费最佳VPN翻墙 | 4月13日21.5M/S|免费V2ray/Clash/SSR/Shadowrocket订阅机场</a></li>
+                        <li class="py-2"><a href="/news/article-108477.htm" title="2万到3万的二手车哪个牌子比较好(两万到三万买什么二手车)">2万到3万的二手车哪个牌子比较好(两万到三万买什么二手车)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">71</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">免费最佳VPN翻墙 机场订阅官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
