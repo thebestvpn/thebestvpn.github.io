@@ -1,4 +1,4 @@
-# 免费最佳VPN翻墙 | 6月13日19.1M/S|免费SSR/Clash/V2ray/Shadowrocket订阅机场  更新时间 2025-06-13 09:19:59
+# 免费最佳VPN翻墙 | 6月18日20.5M/S|免费Shadowrocket/V2ray/SSR/Clash订阅机场  更新时间 2025-06-18 09:20:07
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://thebestvpn.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://thebestvpn.github.io/uploads/2025/06/0-20250613.yaml
-- https://thebestvpn.github.io/uploads/2025/06/1-20250613.yaml
-- https://thebestvpn.github.io/uploads/2025/06/2-20250613.yaml
-- https://thebestvpn.github.io/uploads/2025/06/3-20250613.yaml
-- https://thebestvpn.github.io/uploads/2025/06/4-20250613.yaml
+- https://thebestvpn.github.io/uploads/2025/06/0-20250618.yaml
+- https://thebestvpn.github.io/uploads/2025/06/1-20250618.yaml
+- https://thebestvpn.github.io/uploads/2025/06/2-20250618.yaml
+- https://thebestvpn.github.io/uploads/2025/06/3-20250618.yaml
+- https://thebestvpn.github.io/uploads/2025/06/4-20250618.yaml
 
 ### V2ray订阅链接
 
-- https://thebestvpn.github.io/uploads/2025/06/0-20250613.txt
-- https://thebestvpn.github.io/uploads/2025/06/1-20250613.txt
-- https://thebestvpn.github.io/uploads/2025/06/2-20250613.txt
-- https://thebestvpn.github.io/uploads/2025/06/3-20250613.txt
-- https://thebestvpn.github.io/uploads/2025/06/4-20250613.txt
+- https://thebestvpn.github.io/uploads/2025/06/0-20250618.txt
+- https://thebestvpn.github.io/uploads/2025/06/1-20250618.txt
+- https://thebestvpn.github.io/uploads/2025/06/2-20250618.txt
+- https://thebestvpn.github.io/uploads/2025/06/3-20250618.txt
+- https://thebestvpn.github.io/uploads/2025/06/4-20250618.txt
 
 ### Sing-box订阅链接
 
-- https://thebestvpn.github.io/uploads/2025/06/20250613.json
+- https://thebestvpn.github.io/uploads/2025/06/20250618.json
 
 ## 更多clash节点订阅 ：
 
