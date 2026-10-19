@@ -222,22 +222,23 @@ v2ray具有极强的性能表现，支持高效的数据加密和流量优化，
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2026-10-10-vpn-node.htm">免费最佳VPN翻墙 | 10月10日21.1M/S|免费SSR节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/Trojan节点订阅机场</a></p>
+        <p>下一个：<a href="/free-nodes/mianfei-vpn-2026-10-13.htm">免费最佳VPN翻墙 | 10月13日19.1M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点/SSR节点订阅机场</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 多路复用如何优化高频短连接？</h5></div>
+    <div class="panel-heading"><h5>Clash 是否支持 DNS 分流？</h5></div>
     <div class="panel-body">
-        多路复用允许多个短连接共享同一通道，减少握手次数和加密开销。适合游戏和即时通讯等高频短连接场景，提高吞吐量和连接稳定性，保证流量快速传输。<hr />    </div>
+        支持。Clash 可以自定义 DNS 服务器，并通过 rules 区分国内外域名解析方式。比如国内网站可使用本地 DNS，国外网站可走代理 DNS，从而提升访问速度与稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 的 Web 面板有什么用途？</h5></div>
+    <div class="panel-heading"><h5>如何优化 Clash DNS 解析速度？</h5></div>
     <div class="panel-body">
-        Hiddify Next 自带 Web 管理面板，管理员可通过浏览器管理用户、监控流量、生成订阅链接并部署节点。无需命令行操作，极大提高管理效率。<hr />    </div>
+        可在配置文件中启用 fake-ip 模式或使用高质量的 DoH 服务（如 Cloudflare、AliDNS）。同时将 `fallback-filter.geoip` 设置为 true，避免国内域名被错误解析到境外，提高解析效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的主要特点是什么？</h5></div>
+    <div class="panel-heading"><h5>SSR 如何配置混淆以应对封锁升级？</h5></div>
     <div class="panel-body">
-        WinXray 是一款基于 V2Ray 核心的 Windows 客户端，界面直观，支持 VMess、VLess、Trojan、Shadowsocks 等多协议。它提供一键导入订阅、节点测速、自动分流等功能，是适合初学者和进阶用户的图形化代理工具。<hr />    </div>
+        选择合适的混淆方式，如 tls1.2_ticket_auth，可模拟正常 HTTPS 流量。合理搭配协议和混淆参数，可有效降低被 DPI 检测和封锁的风险，提高节点长期稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 配置 TLS+WebSocket 有哪些性能优势？</h5></div>
@@ -250,29 +251,29 @@ v2ray具有极强的性能表现，支持高效的数据加密和流量优化，
         XTLS 通过减少握手次数和加密开销降低延迟。结合策略组和多节点切换，可在高延迟或不稳定的移动网络环境中保持连接稳定，提升网页浏览、视频和游戏体验流畅度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 是否支持 DNS 分流？</h5></div>
-    <div class="panel-body">
-        支持。Clash 可以自定义 DNS 服务器，并通过 rules 区分国内外域名解析方式。比如国内网站可使用本地 DNS，国外网站可走代理 DNS，从而提升访问速度与稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 的伪装域名如何正确配置？</h5></div>
-    <div class="panel-body">
-        伪装域名必须真实可访问且证书有效，否则客户端无法建立连接。正确配置可隐藏真实流量特征，降低被封锁和检测风险，提高节点安全性和长期可用性。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 相比 Clash Premium 有哪些改进？</h5></div>
     <div class="panel-body">
         Mihomo 作为 Clash Premium 的开源替代品，移除了闭源依赖并优化了内存管理。它支持更多自定义规则和插件扩展，对开发者更友好，同时保持与 Clash 配置完全兼容。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 如何配置混淆以应对封锁升级？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 的 Web 面板有什么用途？</h5></div>
     <div class="panel-body">
-        选择合适的混淆方式，如 tls1.2_ticket_auth，可模拟正常 HTTPS 流量。合理搭配协议和混淆参数，可有效降低被 DPI 检测和封锁的风险，提高节点长期稳定性。<hr />    </div>
+        Hiddify Next 自带 Web 管理面板，管理员可通过浏览器管理用户、监控流量、生成订阅链接并部署节点。无需命令行操作，极大提高管理效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何优化 Clash DNS 解析速度？</h5></div>
+    <div class="panel-heading"><h5>WinXray 的主要特点是什么？</h5></div>
     <div class="panel-body">
-        可在配置文件中启用 fake-ip 模式或使用高质量的 DoH 服务（如 Cloudflare、AliDNS）。同时将 `fallback-filter.geoip` 设置为 true，避免国内域名被错误解析到境外，提高解析效率。    </div>
+        WinXray 是一款基于 V2Ray 核心的 Windows 客户端，界面直观，支持 VMess、VLess、Trojan、Shadowsocks 等多协议。它提供一键导入订阅、节点测速、自动分流等功能，是适合初学者和进阶用户的图形化代理工具。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 多路复用如何优化高频短连接？</h5></div>
+    <div class="panel-body">
+        多路复用允许多个短连接共享同一通道，减少握手次数和加密开销。适合游戏和即时通讯等高频短连接场景，提高吞吐量和连接稳定性，保证流量快速传输。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan 的伪装域名如何正确配置？</h5></div>
+    <div class="panel-body">
+        伪装域名必须真实可访问且证书有效，否则客户端无法建立连接。正确配置可隐藏真实流量特征，降低被封锁和检测风险，提高节点安全性和长期可用性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -320,16 +321,16 @@ v2ray具有极强的性能表现，支持高效的数据加密和流量优化，
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-12-vpn-free.htm" title="免费最佳VPN翻墙 | 9月12日20.5M/S|免费Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点订阅机场">免费最佳VPN翻墙 | 9月12日20.5M/S|免费Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-6-vpn-free.htm" title="免费最佳VPN翻墙 | 10月6日20M/S|免费Clash节点/Trojan节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点订阅机场">免费最佳VPN翻墙 | 10月6日20M/S|免费Clash节点/Trojan节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-10-9.htm" title="免费最佳VPN翻墙 | 10月9日19.7M/S|免费Singbox节点/Shadowrocket节点/Trojan节点/V2ray节点/SSR节点/Clash节点订阅机场">免费最佳VPN翻墙 | 10月9日19.7M/S|免费Singbox节点/Shadowrocket节点/Trojan节点/V2ray节点/SSR节点/Clash节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-2-node-share.htm" title="免费最佳VPN翻墙 | 10月2日18.1M/S|免费SSR节点/Trojan节点/Shadowrocket节点/V2ray节点/Clash节点/Singbox节点订阅机场">免费最佳VPN翻墙 | 10月2日18.1M/S|免费SSR节点/Trojan节点/Shadowrocket节点/V2ray节点/Clash节点/Singbox节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-8-free-vpn-node.htm" title="免费最佳VPN翻墙 | 10月8日19.4M/S|免费SSR节点/Clash节点/Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点订阅机场">免费最佳VPN翻墙 | 10月8日19.4M/S|免费SSR节点/Clash节点/Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-9-27.htm" title="免费最佳VPN翻墙 | 9月27日21.3M/S|免费Singbox节点/Trojan节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点订阅机场">免费最佳VPN翻墙 | 9月27日21.3M/S|免费Singbox节点/Trojan节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-26-vpn-proxy.htm" title="免费最佳VPN翻墙 | 9月26日18.3M/S|免费SSR节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点订阅机场">免费最佳VPN翻墙 | 9月26日18.3M/S|免费SSR节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-10-vpn-node.htm" title="免费最佳VPN翻墙 | 10月10日21.1M/S|免费SSR节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/Trojan节点订阅机场">免费最佳VPN翻墙 | 10月10日21.1M/S|免费SSR节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/Trojan节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/vpn-github-2026-9-19.htm" title="免费最佳VPN翻墙 | 9月19日20.7M/S|免费Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点订阅机场">免费最佳VPN翻墙 | 9月19日20.7M/S|免费Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点订阅机场</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-28-node-share.htm" title="免费最佳VPN翻墙 | 9月28日22.3M/S|免费V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点订阅机场">免费最佳VPN翻墙 | 9月28日22.3M/S|免费V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-21.htm" title="免费最佳VPN翻墙 | 9月21日22M/S|免费Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点订阅机场">免费最佳VPN翻墙 | 9月21日22M/S|免费Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-4-node-share.htm" title="免费最佳VPN翻墙 | 9月4日18.3M/S|免费Clash节点/V2ray节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点订阅机场">免费最佳VPN翻墙 | 9月4日18.3M/S|免费Clash节点/V2ray节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-7.htm" title="免费最佳VPN翻墙 | 9月7日18.2M/S|免费Singbox节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点/Trojan节点订阅机场">免费最佳VPN翻墙 | 9月7日18.2M/S|免费Singbox节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点/Trojan节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-22-free-node-subscribe.htm" title="免费最佳VPN翻墙 | 9月22日22.4M/S|免费Singbox节点/Shadowrocket节点/Trojan节点/V2ray节点/Clash节点/SSR节点订阅机场">免费最佳VPN翻墙 | 9月22日22.4M/S|免费Singbox节点/Shadowrocket节点/Trojan节点/V2ray节点/Clash节点/SSR节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/mianfei-vpn-2026-9-11.htm" title="免费最佳VPN翻墙 | 9月11日18.8M/S|免费SSR节点/Trojan节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点订阅机场">免费最佳VPN翻墙 | 9月11日18.8M/S|免费SSR节点/Trojan节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-10-vpn-proxy.htm" title="免费最佳VPN翻墙 | 9月10日18.6M/S|免费Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点/Clash节点/SSR节点订阅机场">免费最佳VPN翻墙 | 9月10日18.6M/S|免费Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点/Clash节点/SSR节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-3.htm" title="免费最佳VPN翻墙 | 9月3日18.4M/S|免费Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点/Singbox节点订阅机场">免费最佳VPN翻墙 | 9月3日18.4M/S|免费Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点/Singbox节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-10-17.htm" title="免费最佳VPN翻墙 | 10月17日19.6M/S|免费Singbox节点/Clash节点/Shadowrocket节点/Trojan节点/V2ray节点/SSR节点订阅机场">免费最佳VPN翻墙 | 10月17日19.6M/S|免费Singbox节点/Clash节点/Shadowrocket节点/Trojan节点/V2ray节点/SSR节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-12-vpn-free.htm" title="免费最佳VPN翻墙 | 9月12日20.5M/S|免费Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点订阅机场">免费最佳VPN翻墙 | 9月12日20.5M/S|免费Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点订阅机场</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -341,7 +342,7 @@ v2ray具有极强的性能表现，支持高效的数据加密和流量优化，
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
